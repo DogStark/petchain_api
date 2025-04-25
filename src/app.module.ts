@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PetModule } from './pet.module';
 import { OwnerModule } from './owner.module';
+import { TreatmentHistoryModule } from './treatment-history.module';
+import { VetModule } from './vet.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { OwnerModule } from './owner.module';
     }),
     PetModule,
     OwnerModule,
+    TreatmentHistoryModule,
+    VetModule,
   ],
   controllers: [AppController],
   providers: [AppService],

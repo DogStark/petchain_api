@@ -4,8 +4,10 @@ import {
   Column,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { Owner } from './owner.entity';
+import { TreatmentHistory } from './treatment-history.entity';
 
 @Entity()
 export class Pet {
@@ -39,4 +41,7 @@ export class Pet {
 
   @Column()
   ownerId: number;
+
+  @OneToMany(() => TreatmentHistory, (treatment) => treatment.pet)
+  treatments: TreatmentHistory[];
 }
