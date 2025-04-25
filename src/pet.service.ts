@@ -61,4 +61,12 @@ export class PetService {
     const pet = await this.findOne(id);
     await this.petRepository.remove(pet);
   }
+
+  async findByIdWithRelations(id: number) {
+    return this.petRepository.findOne({
+      where: { id },
+      relations: ['owner', 'vaccines', 'treatments'],
+    });
+  }
+  
 }
