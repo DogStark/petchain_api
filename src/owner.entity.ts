@@ -7,7 +7,16 @@ export class Owner {
   id: number;
 
   @Column()
-  name: string;
+  fullName: string;
+
+  @Column()
+  phone: string;
+
+  @Column()
+  email: string;
+
+  @Column()
+  address: string;
 
   @OneToMany(() => Pet, (pet) => pet.owner)
   pets: Pet[];
