@@ -4,8 +4,10 @@ import {
   Column,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { Owner } from './owner.entity';
+import { Notification } from './notification.entity';
 
 @Entity()
 export class Pet {
@@ -39,4 +41,7 @@ export class Pet {
 
   @Column()
   ownerId: number;
+
+  @OneToMany(() => Notification, notification => notification.pet)
+  notifications: Notification[];
 }
