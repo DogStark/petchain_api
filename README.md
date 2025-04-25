@@ -1,4 +1,5 @@
 # Petchain_api
+
 Handles all contributions related to the server-side logic, APIs, or blockchain interactions of PetChain
 
 ## 🛠 Tech Stack
@@ -12,6 +13,7 @@ Handles all contributions related to the server-side logic, APIs, or blockchain 
 Before diving in, check out our **[Contribution Guide](https://github.com/petchain/docs/setup.md)** to understand how you can contribute to PetChain across all repos.
 
 ### 📦 Installation
+
 Set up the repo and install dependencies in the right order to get project up and running locally
 
 ```bash
@@ -26,6 +28,7 @@ yarn install
 ```
 
 ### ▶️ Run the Application
+
 This shows how to start the backend server in different modes
 
 #### Development Mode
@@ -45,6 +48,7 @@ yarn start:debug
 ```
 
 ### 🧰 Useful NestJS CLI Commands
+
 These are shortcuts and tools you need to work more efficiently with NestJS
 
 ```bash
@@ -58,7 +62,6 @@ nest g service <service-name>
 nest g controller <controller-name>
 ```
 
-
 ## 🗂 Project Structure
 
 ```
@@ -69,12 +72,13 @@ src/
 └── main.ts
 ```
 
-### 🤝 Contributing 
+### 🤝 Contributing
+
 We’re excited to have you contribute! Check out our [Contribution Guide](https://github.com/DogStark/petChain-Frontend/blob/main/contributing.md) to explore:
 
-* ✅ Code of Conduct
-* 🧭 Step-by-step contribution process 
-* 📋 Open tasks and other ways to get involved
+- ✅ Code of Conduct
+- 🧭 Step-by-step contribution process
+- 📋 Open tasks and other ways to get involved
 
 ---
 
@@ -82,19 +86,17 @@ We’re excited to have you contribute! Check out our [Contribution Guide](https
 
 Explore other parts of the PetChain ecosystem:
 
-
-* 🔐 [Smart Contracts](https://github.com/DogStark/PetMedTracka-Contracts)
-* 📱 [Mobile App ](https://github.com/DogStark/PetMedTracka-MobileApp)
-* 🖥️ [Frontend](https://github.com/DogStark/pet-medical-tracka) 
-
+- 🔐 [Smart Contracts](https://github.com/DogStark/PetMedTracka-Contracts)
+- 📱 [Mobile App ](https://github.com/DogStark/PetMedTracka-MobileApp)
+- 🖥️ [Frontend](https://github.com/DogStark/pet-medical-tracka)
 
 ---
 
 ### 📫 Contact & Community
+
 For feedback, questions or collaboration:
 
-* 🐶 Contact project lead: [@Xaxxoo23](https://t.me/Xaxxoo23), [@llins_x](https://t.me/llins_x)
-* 💬 Join Community Chat: [@PetChain Telegram Group](https://t.me/+fLbWYLN8jZw3ZTNk) 
- 
- 
- ⭐️ [Star this repo](https://github.com/DogStark/petchain_api) to stay updated on new features and releases. 
+- 🐶 Contact project lead: [@Xaxxoo23](https://t.me/Xaxxoo23), [@llins_x](https://t.me/llins_x)
+- 💬 Join Community Chat: [@PetChain Telegram Group](https://t.me/+fLbWYLN8jZw3ZTNk)
+
+⭐️ [Star this repo](https://github.com/DogStark/petchain_api) to stay updated on new features and releases.
