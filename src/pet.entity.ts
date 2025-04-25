@@ -3,9 +3,11 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
+  OneToMany,
   JoinColumn,
 } from 'typeorm';
 import { Owner } from './owner.entity';
+import { Vaccination } from './vaccination.entity';
 
 @Entity()
 export class Pet {
@@ -39,4 +41,7 @@ export class Pet {
 
   @Column()
   ownerId: number;
+
+  @OneToMany(() => Vaccination, (vaccination) => vaccination.pet)
+  vaccinations: Vaccination[];
 }

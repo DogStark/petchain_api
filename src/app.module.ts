@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PetModule } from './pet.module';
 import { OwnerModule } from './owner.module';
+import { VaccinationModule } from './vaccination.module';
+import { Vet } from './vet.entity';
 
 @Module({
   imports: [
@@ -17,8 +19,10 @@ import { OwnerModule } from './owner.module';
       synchronize: true,
       autoLoadEntities: true,
     }),
+    TypeOrmModule.forFeature([Vet]),
     PetModule,
     OwnerModule,
+    VaccinationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
