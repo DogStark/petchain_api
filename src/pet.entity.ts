@@ -3,10 +3,12 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
+  OneToMany,
   JoinColumn,
   OneToMany,
 } from 'typeorm';
 import { Owner } from './owner.entity';
+import { Vaccination } from './vaccination.entity';
 import { Notification } from './notification.entity';
 
 @Entity()
@@ -41,6 +43,9 @@ export class Pet {
 
   @Column()
   ownerId: number;
+
+  @OneToMany(() => Vaccination, (vaccination) => vaccination.pet)
+  vaccinations: Vaccination[];
 
   @OneToMany(() => Notification, notification => notification.pet)
   notifications: Notification[];
