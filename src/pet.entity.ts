@@ -7,6 +7,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { Owner } from './owner.entity';
+import { TreatmentHistory } from './treatment-history.entity';
 import { Vaccination } from './vaccination.entity';
 
 @Entity()
@@ -41,6 +42,9 @@ export class Pet {
 
   @Column()
   ownerId: number;
+
+  @OneToMany(() => TreatmentHistory, (treatment) => treatment.pet)
+  treatments: TreatmentHistory[];
 
   @OneToMany(() => Vaccination, (vaccination) => vaccination.pet)
   vaccinations: Vaccination[];

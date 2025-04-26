@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { TreatmentHistory } from './treatment-history.entity';
 import { Vaccination } from './vaccination.entity';
 
 @Entity()
@@ -7,20 +8,29 @@ export class Vet {
   id: number;
 
   @Column()
-  name: string;
+  firstName: string;
+
+  @Column()
+  lastName: string;
+
+  @Column()
+  specialization: string;
 
   @Column()
   licenseNumber: string;
 
-  @Column({ nullable: true })
-  clinic: string;
-
   @Column()
   email: string;
 
-  @Column({ nullable: true })
+  @Column()
   phone: string;
+
+  @OneToMany(() => TreatmentHistory, (treatment) => treatment.vet)
+  treatments: TreatmentHistory[];
+
+  @Column({ nullable: true })
+  clinic: string;
 
   @OneToMany(() => Vaccination, (vaccination) => vaccination.vet)
   vaccinations: Vaccination[];
-} 
+}
