@@ -9,6 +9,7 @@ export class NotificationSchedulerService {
 
   constructor(private readonly notificationService: NotificationService) {}
 
+  // CronExpression
   @Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
   async handleDailyNotifications() {
     this.logger.log('Starting daily notification scan...');

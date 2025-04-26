@@ -2,12 +2,15 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, Up
 import { Pet } from '../pet.entity';
 import { Owner } from '../owner.entity';
 
+// NotificationType
 export enum NotificationType {
   APPOINTMENT_REMINDER = 'APPOINTMENT_REMINDER',
   VACCINATION_ALERT = 'VACCINATION_ALERT',
   TREATMENT_FOLLOW_UP = 'TREATMENT_FOLLOW_UP'
 }
 
+
+// NotificationStatus
 export enum NotificationStatus {
   PENDING = 'PENDING',
   SENT = 'SENT',
