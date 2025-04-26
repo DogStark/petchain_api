@@ -11,16 +11,22 @@ import {
   ValidationPipe,
   HttpCode,
   HttpStatus,
+  NotFoundException,
+  Res,
 } from '@nestjs/common';
+import { Response } from 'express';
 import { PetService } from './pet.service';
 import { CreatePetDto } from './dto/create-pet.dto';
 import { UpdatePetDto } from './dto/update-pet.dto';
 import { Pet } from './pet.entity';
+import { PdfService } from './pdf.service';
 
 @Controller('pets')
 @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
 export class PetController {
-  constructor(private readonly petService: PetService) {}
+  constructor(private readonly petService: PetService,
+    private readonly pdfService: PdfService,
+  ) {}
 
   @Post()
   async create(@Body() createPetDto: CreatePetDto): Promise<Pet> {
@@ -50,4 +56,20 @@ export class PetController {
   async remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.petService.remove(id);
   }
+
+  @Get(':id/export')
+  async exportPet(
+    @Param('id') id: number,
+    @Res() res: Response, // Explicitly type the response as express.Response
+  ) {
+    const pet = await this.petService.findByIdWithRelations(id);
+  
+    if (!pet) {
+      throw new NotFoundException('Pet not found');
+    }
+  
+    this.pdfService.generatePetPDF(res, pet);
+  }
+  
+
 }

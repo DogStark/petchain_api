@@ -6,6 +6,7 @@ import { PetModule } from './pet.module';
 import { OwnerModule } from './owner.module';
 import { TreatmentHistoryModule } from './treatment-history.module';
 import { VetModule } from './vet.module';
+import { VaccinationModule } from './vaccination.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { VetModule } from './vet.module';
     OwnerModule,
     TreatmentHistoryModule,
     VetModule,
+    VaccinationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
