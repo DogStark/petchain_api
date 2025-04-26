@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Pet } from './pet.entity';
+import { Notification } from './notification.entity';
 
 @Entity()
 export class Owner {
@@ -18,6 +19,15 @@ export class Owner {
   @Column()
   address: string;
 
-  @OneToMany(() => Pet, (pet) => pet.owner)
+  @Column()
+  email: string;
+
+  @Column()
+  phone: string;
+
+  @OneToMany(() => Pet, pet => pet.owner)
   pets: Pet[];
+
+  @OneToMany(() => Notification, notification => notification.owner)
+  notifications: Notification[];
 }

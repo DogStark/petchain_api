@@ -5,10 +5,12 @@ import {
   ManyToOne,
   OneToMany,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { Owner } from './owner.entity';
 import { TreatmentHistory } from './treatment-history.entity';
 import { Vaccination } from './vaccination.entity';
+import { Notification } from './notification.entity';
 
 @Entity()
 export class Pet {
@@ -48,4 +50,7 @@ export class Pet {
 
   @OneToMany(() => Vaccination, (vaccination) => vaccination.pet)
   vaccinations: Vaccination[];
+
+  @OneToMany(() => Notification, notification => notification.pet)
+  notifications: Notification[];
 }
