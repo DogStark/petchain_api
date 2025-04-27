@@ -1,11 +1,23 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Pet } from './pet.entity';
+import { User } from './user.entity';
 import { Notification } from './notification.entity';
 
 @Entity()
 export class Owner {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @OneToOne(() => User, (user) => user.ownerProfile)
+  @JoinColumn()
+  user: User;
 
   @Column()
   fullName: string;
@@ -19,15 +31,9 @@ export class Owner {
   @Column()
   address: string;
 
-  @Column()
-  email: string;
-
-  @Column()
-  phone: string;
-
-  @OneToMany(() => Pet, pet => pet.owner)
+  @OneToMany(() => Pet, (pet) => pet.owner)
   pets: Pet[];
 
-  @OneToMany(() => Notification, notification => notification.owner)
+  @OneToMany(() => Notification, (notification) => notification.owner)
   notifications: Notification[];
 }
