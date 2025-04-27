@@ -1,11 +1,16 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne, JoinColumn } from 'typeorm';
 import { TreatmentHistory } from './treatment-history.entity';
 import { Vaccination } from './vaccination.entity';
+import { User } from './user.entity';
 
 @Entity()
 export class Vet {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @OneToOne(() => User, user => user.vetProfile)
+  @JoinColumn()
+  user: User;
 
   @Column()
   firstName: string;

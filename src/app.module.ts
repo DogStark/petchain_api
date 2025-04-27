@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { AuthModule } from './auth.module';
+import { RbacExampleController } from './rbac-example.controller';
+import { RolesGuard } from './roles.guard';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -10,6 +13,7 @@ import { VaccinationModule } from './vaccination.module';
 
 @Module({
   imports: [
+    AuthModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -26,7 +30,7 @@ import { VaccinationModule } from './vaccination.module';
     VetModule,
     VaccinationModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, RbacExampleController],
+  providers: [AppService, RolesGuard],
 })
 export class AppModule {}
