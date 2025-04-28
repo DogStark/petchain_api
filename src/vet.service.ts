@@ -18,7 +18,7 @@ export class VetService {
       const vet = this.vetRepository.create(createVetDto);
       return await this.vetRepository.save(vet);
     } catch (error) {
-      if (error.code === '23505') { // Unique constraint violation (PostgreSQL code)
+      if (error.code === '23505') { 
         throw new ConflictException('License number already exists.');
       }
       throw error;
