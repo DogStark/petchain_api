@@ -10,6 +10,7 @@ import { OwnerModule } from './owner.module';
 import { TreatmentHistoryModule } from './treatment-history.module';
 import { VetModule } from './vet.module';
 import { VaccinationModule } from './vaccination.module';
+import { AppointmentModule } from './appointment.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { VaccinationModule } from './vaccination.module';
     TreatmentHistoryModule,
     VetModule,
     VaccinationModule,
+    AppointmentModule,
   ],
   controllers: [AppController, RbacExampleController],
   providers: [AppService, RolesGuard],
