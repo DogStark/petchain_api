@@ -11,6 +11,8 @@ import { TreatmentHistoryModule } from './treatment-history.module';
 import { VetModule } from './vet.module';
 import { VaccinationModule } from './vaccination.module';
 import { AppointmentModule } from './appointment.module';
+import { VetService } from './vet.service';
+import { VetController } from './vet.controller';
 
 @Module({
   imports: [
@@ -32,7 +34,7 @@ import { AppointmentModule } from './appointment.module';
     VaccinationModule,
     AppointmentModule,
   ],
-  controllers: [AppController, RbacExampleController],
-  providers: [AppService, RolesGuard],
+  controllers: [AppController, RbacExampleController, VetController],
+  providers: [AppService, RolesGuard, VetService],
 })
 export class AppModule {}
