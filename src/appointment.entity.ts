@@ -3,41 +3,46 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  CreateDateColumn,
-  UpdateDateColumn,
+  Unique,
+  OneToMany,
 } from 'typeorm';
+import { Owner } from './owner.entity';
 import { Pet } from './pet.entity';
+import { Vet } from './vet.entity';
 
 @Entity()
+@Unique(['vetId', 'date', 'time']) // Prevents double-booking
 export class Appointment {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  date: Date;
+  reason: string;
 
   @Column()
-  purpose: string;
+  date: string;
 
-  @Column({
-    type: 'enum',
-    enum: ['SCHEDULED', 'COMPLETED', 'CANCELLED', 'NO_SHOW'],
-    default: 'SCHEDULED',
-  })
-  status: string;
+  @Column()
+  time: string;
 
-  @Column({ nullable: true })
-  notes: string;
+  @Column()
+  petId: number;
 
-  @Column({ nullable: true })
-  blockchainHash: string;
+  @Column()
+  ownerId: number;
 
-  @CreateDateColumn()
-  createdAt: Date;
+  @Column()
+  vetId: number;
 
-  @UpdateDateColumn()
-  updatedAt: Date;
+  @Column({ default: false })
+  notification: boolean;
 
-  @ManyToOne(() => Pet, (pet) => pet.appointment)
+  @ManyToOne(() => Owner, (owner) => owner.appointments, { eager: true })
+  owner: Owner;
+
+  @ManyToOne(() => Pet, (pet) => pet.appointments, { eager: true })
   pet: Pet;
+
+  @ManyToOne(() => Vet, (vet) => vet.appointments, { eager: true })
+  vet: Vet;
 }

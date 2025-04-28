@@ -2,6 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne, JoinColumn
 import { TreatmentHistory } from './treatment-history.entity';
 import { Vaccination } from './vaccination.entity';
 import { User } from './user.entity';
+import { Appointment } from './appointment.entity';
 
 @Entity()
 export class Vet {
@@ -38,4 +39,7 @@ export class Vet {
 
   @OneToMany(() => Vaccination, (vaccination) => vaccination.vet)
   vaccinations: Vaccination[];
+  
+  @OneToMany(() => Appointment, (appointment) => appointment.vet)
+  appointments: Appointment[];
 }

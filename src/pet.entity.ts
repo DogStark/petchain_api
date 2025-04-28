@@ -55,5 +55,5 @@ export class Pet {
   notifications: Notification[];
 
   @OneToMany(() => Appointment, (appointment) => appointment.pet)
-  appointment: Appointment;
+  appointments: Appointment[];
 }
