@@ -1,8 +1,14 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, Unique, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  Unique,
+  OneToMany,
+} from 'typeorm';
 import { Owner } from './owner.entity';
 import { Pet } from './pet.entity';
 import { Vet } from './vet.entity';
-
 
 @Entity()
 @Unique(['vetId', 'date', 'time']) // Prevents double-booking
@@ -15,6 +21,22 @@ export class Appointment {
 
   @Column()
   date: string;
+
+  @Column()
+  purpose: string;
+
+  @Column({
+    type: 'enum',
+    enum: ['SCHEDULED', 'COMPLETED', 'CANCELLED', 'NO_SHOW'],
+    default: 'SCHEDULED',
+  })
+  status: string;
+
+  @Column({ nullable: true })
+  notes: string;
+
+  @Column({ nullable: true })
+  blockchainHash: string;
 
   @Column()
   time: string;
@@ -39,7 +61,4 @@ export class Appointment {
 
   @ManyToOne(() => Vet, (vet) => vet.appointments, { eager: true })
   vet: Vet;
-  
 }
-
-
