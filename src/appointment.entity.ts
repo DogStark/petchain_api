@@ -23,6 +23,22 @@ export class Appointment {
   date: string;
 
   @Column()
+  purpose: string;
+
+  @Column({
+    type: 'enum',
+    enum: ['SCHEDULED', 'COMPLETED', 'CANCELLED', 'NO_SHOW'],
+    default: 'SCHEDULED',
+  })
+  status: string;
+
+  @Column({ nullable: true })
+  notes: string;
+
+  @Column({ nullable: true })
+  blockchainHash: string;
+
+  @Column()
   time: string;
 
   @Column()
