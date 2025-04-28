@@ -9,6 +9,7 @@ import {
 import { Pet } from './pet.entity';
 import { User } from './user.entity';
 import { Notification } from './notification.entity';
+import { Appointment } from './appointment.entity';
 
 @Entity()
 export class Owner {
@@ -36,4 +37,8 @@ export class Owner {
 
   @OneToMany(() => Notification, (notification) => notification.owner)
   notifications: Notification[];
+
+  @OneToMany(() => Appointment, (appointment) => appointment.owner)
+  appointments: Appointment[];
+
 }
