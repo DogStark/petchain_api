@@ -13,6 +13,9 @@ import { VaccinationModule } from './vaccination.module';
 import { AppointmentModule } from './appointment.module';
 import { VetService } from './vet.service';
 import { VetController } from './vet.controller';
+import { VetsModule } from './vets/vets.module';
+import { OwnersModule } from './owners/owners.module';
+import { typeOrmConfig } from './config/typeorm.config';
 
 @Module({
   imports: [
